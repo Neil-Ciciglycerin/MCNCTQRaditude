@@ -44,9 +44,8 @@ def game():
     pygame.mixer.music.play(-1)
     clk = pygame.time.Clock()
     MCNC = Player()
-    lno = 1
     lvl = level_system.level()
-    lvl.load(f"levels/{lno}.json")
+    lvl.load(f"levels/start.json")
     bg = lvl.bg
     all_sprites = pygame.sprite.Group()
     all_sprites.add(MCNC)

@@ -25,7 +25,7 @@
     <Compile Include="MCNC_s_tqraditqd.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="levels\1.json" />
+    <Content Include="levels\start.json" />
     <Content Include="assets\1_bg.jpg" />
     <Content Include="assets\bgm.wav" />
     <Content Include="assets\player.png" />
