@@ -11,7 +11,7 @@ pygame.display.set_caption("MC NC's tally quest to defeat Raditude dog")
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.surf = pygame.image.load("player.png").convert_alpha()
+        self.surf = pygame.image.load("assets/player.png").convert_alpha()
         self.pleft = self.surf
         self.prght = pygame.transform.flip(self.pleft, 1, 0)
         self.rect = self.surf.get_rect()
@@ -26,9 +26,9 @@ class Player(pygame.sprite.Sprite):
             self.surf = self.pleft
 
 def menu():
-    bg = pygame.image.load("title.png")
+    bg = pygame.image.load("assets/title.png")
     screen.blit(bg, [0,0])
-    pygame.mixer.music.load("m_mus.mp3")
+    pygame.mixer.music.load("assets/m_mus.mp3")
     pygame.mixer.music.play()
     while True:
         for e in pygame.event.get():
@@ -40,14 +40,14 @@ def menu():
         pygame.display.flip()
 
 def game():
-    pygame.mixer.music.load("bgm.wav")
+    pygame.mixer.music.load("assets/bgm.wav")
     pygame.mixer.music.play(-1)
     clk = pygame.time.Clock()
-    bg = pygame.image.load("1.jpg").convert()
     MCNC = Player()
     lno = 1
     lvl = level_system.level()
     lvl.load(f"levels/{lno}.json")
+    bg = lvl.bg
     all_sprites = pygame.sprite.Group()
     all_sprites.add(MCNC)
     for i in lvl.platforms:

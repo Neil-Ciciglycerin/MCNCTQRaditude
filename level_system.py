@@ -16,4 +16,4 @@ class level():
         file_unparsed = open(fpath).read()
         file_dict = json.loads(file_unparsed)
         self.platforms = tuple([platform(x) for x in file_dict["platforms"]])
-        
+        self.bg = pygame.image.load(file_dict["bg"]).convert()
