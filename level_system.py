@@ -4,8 +4,8 @@ class platform(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.rect = pygame.Rect(coords)
         self.surf = pygame.Surface((self.rect.width, self.rect.height))
-        self.surf.fill(pygame.Color(0x836539))
-        pygame.draw.rect(self.surf, pygame.Color(0x34A56F),[0,0,self.rect.width,5])
+        self.surf.fill(pygame.Color((116,102,59)))
+        pygame.draw.rect(self.surf, pygame.Color((0,154,23)),[0,0,self.rect.width,5])
 class level():
     def __init__(self):
         self.platforms = []

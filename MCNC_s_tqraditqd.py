@@ -15,7 +15,15 @@ class Player(pygame.sprite.Sprite):
         self.pleft = self.surf
         self.prght = pygame.transform.flip(self.pleft, 1, 0)
         self.rect = self.surf.get_rect()
-    def mvmt(self, fps):
+        self.spdy = 0
+    def mvmt(self, fps, level):
+        self.spdy += (10/fps)
+        for i in range(int(self.spdy)):
+            self.rect.y += self.spdy
+            if not self.rect.collidelist(level.platforms) == -1:
+                self.rect.y -= 1
+                self.spdy = 0
+                break
         k = pygame.key.get_pressed()
         speed = 240 if k[pygame.K_j] else 100
         if k[pygame.K_d]:
@@ -55,7 +63,7 @@ def game():
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
                 exit()
-        MCNC.mvmt(clk.get_fps())
+        MCNC.mvmt(clk.get_fps() or 60, lvl)
         screen.blit(bg, [0,0])
         for i in all_sprites:
             screen.blit(i.surf, i.rect)
